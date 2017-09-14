@@ -7,7 +7,7 @@ DBDL 3NF:			Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocI
 				FK OffLocID --> OfficeLocation
 				FK JobID --> Job
 				FK GroupID --> Group
-				SK EmpWorkPhone (although not a practical choice given its mutability)
+				SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
 
 Entity:				OfficeLocation
 Attributes:			OffLocID
@@ -20,7 +20,7 @@ Entity:				Job
 Attributes:			JobID, JobTitle
 Functional Dependencies:	JobID --> JobID, JobTitle
 Primary Key:			JobID
-Special Restrictions:		Not null and unique constraints on JobTitle
+Special Restrictions:		Unique constraint on JobTitle
 DBDL 3NF:			Job(__JobID__, JobTitle)
 				SK JobTitle
 
@@ -28,7 +28,7 @@ Entity:				Group
 Attributes:			GroupID, GroupName
 Functional Dependencies:	GroupID --> GroupName
 Primary Key:			GroupID
-Special Restrictions:		Not null and unique constraints on GroupName
+Special Restrictions:		Unique constraint on GroupName
 DBDL 3NF:			Group(__GroupID__, GroupName)
 				SK GroupName
 
@@ -36,7 +36,7 @@ Entity:				Project
 Attributes:			ProjID, ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID
 Functional Dependencies:	ProjID --> ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID
 Primary Key:			ProjID
-Special Restrictions:		Not null and unique constraints on JobTitle
+Special Restrictions:		Unique constraint on ProjName
 DBDL 3NF:			Project(__ProjID__, ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID)
 				FK ProjTypeID --> ProjectType
 				FK ProjStatusID --> ProjectStatus
@@ -48,7 +48,7 @@ Entity:				ProjectType
 Attributes:			ProjTypeID, ProjTypeDescription
 Functional Dependencies:	ProjTypeID --> ProjTypeDescription
 Primary Key:			ProjTypeID
-Special Restrictions:		Not null and unique constraints on ProjTypeDescription
+Special Restrictions:		Unique constraint on ProjTypeDescription
 DBDL 3NF:			ProjectType(__ProjTypeID__, ProjTypeDescription)
 				SK ProjTypeDescription
 
@@ -56,7 +56,7 @@ Entity:				ProjectStatus
 Attributes:			ProjectStatus, ProjStatusDescription
 Functional Dependencies:	ProjectStatus --> ProjStatusDescription
 Primary Key:			ProjectStatus
-Special Restrictions:		Not null and unique constraints on ProjectStatus
+Special Restrictions:		Unique constraint on ProjectStatus
 DBDL 3NF:			ProjectStatus(__ProjectStatus__, ProjStatusDescription)
 				SK ProjStatusDescription
 
@@ -64,7 +64,7 @@ Entity:				Customer
 Attributes:			CustID, CustName, CustContactFirstName, CustContactLastName
 Functional Dependencies:	CustID --> CustName, CustContactFirstName, CustContactLastName
 Primary Key:			CustID
-Special Restrictions:		Not null and unique constraints on CustName
+Special Restrictions:		Unique constraint on CustName
 DBDL 3NF:			Customer(__CustID__, CustName, CustContactFirstName, CustContactLastName)
 				SK CustName
 
