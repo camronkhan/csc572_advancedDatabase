@@ -1,0 +1,78 @@
+Entity:										Employee
+Attributes:								EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
+Functional Dependencies:	EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
+Primary Key:							EmpID
+Special Restrictions:			Unique constraint on EmpWorkPhone
+DBDL 3NF:									Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID)
+													FK OffLocID --> OfficeLocation
+													FK JobID --> Job
+													FK GroupID --> Group
+													SK EmpWorkPhone (although not a practical choice given its mutability)
+
+Entity:										OfficeLocation
+Attributes:								OffLocID
+Functional Dependencies:	No non-trivial FDs
+Primary Key:							OffLocID
+Special Restrictions:			None
+DBDL 3NF:									OfficeLocation(__OffLocID__)
+
+Entity:										Job
+Attributes:								JobID, JobTitle
+Functional Dependencies:	JobID --> JobID, JobTitle
+Primary Key:							JobID
+Special Restrictions:			Not null and unique constraints on JobTitle
+DBDL 3NF:									Job(__JobID__, JobTitle)
+													SK JobTitle
+
+Entity:										Group
+Attributes:								GroupID, GroupName
+Functional Dependencies:	GroupID --> GroupName
+Primary Key:							GroupID
+Special Restrictions:			Not null and unique constraints on GroupName
+DBDL 3NF:									Group(__GroupID__, GroupName)
+													SK GroupName
+
+Entity:										Project
+Attributes:								ProjID, ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID
+Functional Dependencies:	ProjID --> ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID
+Primary Key:							ProjID
+Special Restrictions:			Not null and unique constraints on JobTitle
+DBDL 3NF:									Project(__ProjID__, ProjName, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjTypeID, ProjStatusID, ProjLeaderID, CustID)
+													FK ProjTypeID --> ProjectType
+													FK ProjStatusID --> ProjectStatus
+													FK ProjLeaderID --> Employee
+													FK CustID --> Customer
+													SK ProjName
+
+Entity:										ProjectType
+Attributes:								ProjTypeID, ProjTypeDescription
+Functional Dependencies:	ProjTypeID --> ProjTypeDescription
+Primary Key:							ProjTypeID
+Special Restrictions:			Not null and unique constraints on ProjTypeDescription
+DBDL 3NF:									ProjectType(__ProjTypeID__, ProjTypeDescription)
+													SK ProjTypeDescription
+
+Entity:										ProjectStatus
+Attributes:								ProjectStatus, ProjStatusDescription
+Functional Dependencies:	ProjectStatus --> ProjStatusDescription
+Primary Key:							ProjectStatus
+Special Restrictions:			Not null and unique constraints on ProjectStatus
+DBDL 3NF:									ProjectStatus(__ProjectStatus__, ProjStatusDescription)
+													SK ProjStatusDescription
+
+Entity:										Customer
+Attributes:								CustID, CustName, CustContactFirstName, CustContactLastName
+Functional Dependencies:	CustID --> CustName, CustContactFirstName, CustContactLastName
+Primary Key:							CustID
+Special Restrictions:			Not null and unique constraints on CustName
+DBDL 3NF:									Customer(__CustID__, CustName, CustContactFirstName, CustContactLastName)
+													SK CustName
+
+Entity:										EmployeeProject
+Attributes:								EmpID, ProjID, EmpPercentTimeAssigned, EmpTotalHoursWorked
+Functional Dependencies:	EmpID, ProjID --> EmpPercentTimeAssigned, EmpTotalHoursWorked
+Primary Key:							EmpID, ProjID
+Special Restrictions:			None
+DBDL 3NF:									EmployeeProject(__EmpID__, __ProjID__, EmpPercentTimeAssigned, EmpTotalHoursWorked)
+													FK EmpID --> Employee
+													FK ProjID --> Project
