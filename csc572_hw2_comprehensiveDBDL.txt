@@ -1,13 +1,13 @@
-Entity:				Employee
-Attributes:			EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
+Entity:						Employee
+Attributes:					EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
 Functional Dependencies:	EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
-Primary Key:			EmpID
+Primary Key:				EmpID
 Special Restrictions:		Unique constraint on EmpWorkPhone
-DBDL 3NF:			Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID)
-				FK OffLocID --> OfficeLocation
-				FK JobID --> Job
-				FK GroupID --> Group
-				SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
+DBDL 3NF:					Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID)
+							FK OffLocID --> OfficeLocation
+							FK JobID --> Job
+							FK GroupID --> Group
+							SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
 
 Entity:				OfficeLocation
 Attributes:			OffLocID
