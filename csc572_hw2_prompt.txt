@@ -1,0 +1,48 @@
+CSC 572B Advanced Database Concepts
+Assignment 2 – Database Design
+Due September 17th by 11:59 PM CST
+10 Points
+
+This assignment is worth 10 points. All work is to be your own work. If you have questions regarding this
+assignment please email me.
+
+For each of the four user views you need to submit the correct 3NF DBDL (including any special restrictions),
+the cumulative DBDL for the database design (including the list of special restrictions), and the final cumulative
+data structure diagram (arrows going in the correct direction).
+
+Reliable Consulting Firm
+
+The Computer Systems (CS) department of the Reliable Consulting Firm is responsible for completing projects
+(designing database systems) for external customers. The CS manager has decided that there is a need for
+the CS department staff to create and maintain a database system of their own to keep track of the CS
+employees and each of the projects they have been assigned to.
+
+1. For each CS employee, list the employee number, employee name (first and last), office location
+number, the job title (position), and the number and name of the CS group in which the employee
+works.
+
+2. For each CS employee list the employee name (first and last) and for each project to which the
+employee is assigned, list the project number and name (description), the percent of the employee’s
+time assigned to the project, and the total number of hours the employee has worked on the project so
+far.
+
+3. For each CS project, list the project number and name (description), the name of the customer
+(business) that requested the project, the name of the contact person at that business, the project type
+(maintenance, database, support, or reports), project status (planning, in progress, on hold, completed),
+start date, end date, total budgeted person-hours, total budgeted dollars, and the name of the CS
+employee serving as project leader.
+
+4. For each CS group, list the group number and the group name. For each employee in the group, list
+the employee’s number, name, position, work phone number, and for each project, to which that
+employee is assigned, list the project number, percent of that employee’s time assigned to the project.
+
+Notes:
+ Treat each of the 4 requirements as an individual user view and apply the database design
+methodology.
+ As you read through each requirement make note of the relationships and any special restrictions. You
+can determine the relationships (one-to-many or many-to-many) between the entities based upon the
+wording in each of the user views. Hint: There is a many-to-many relationship in the design.
+ The points are assigned as follow as (maximum of 10 points):
+o 1 point for the 3NF DBDL and special restrictions (if any) for each user requirement
+o 4 points for the cumulative design DBDL
+o 2 points for the data structure diagram
