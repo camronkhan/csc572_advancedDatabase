@@ -2,9 +2,7 @@
         USER VIEW DBDLs        
 ===============================
 
-
 NOTE: Trivial functional dependencies are not listed.
-
 
 -----------
 USER VIEW 1
@@ -14,31 +12,28 @@ Entity:                     Employee
                             OfficeLocation
                             Job
                             Group
-Attributes:                 EmpID, EmpFirstName, EmpLastName, EmpWorkPhone
+Attributes:                 EmpID, EmpFirstName, EmpLastName
                             OffLocID
                             JobID, JobTitle
                             GroupID, GroupName
-Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
+Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName, OffLocID, JobID, GroupID
                             JobID --> JobID, JobTitle
                             GroupID --> GroupName
 Primary Key:                EmpID
                             OffLocID
                             JobID
                             GroupID
-Special Restrictions:       Unique constraint on EmpWorkPhone
-                            Unique constraint on JobTitle
+Special Restrictions:       Unique constraint on JobTitle
                             Unique constraint on GroupName
-DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID)
+DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, OffLocID, JobID, GroupID)
                             OfficeLocation(__OffLocID__)
                             Job(__JobID__, JobTitle)
                             Group(__GroupID__, GroupName)
                             FK OffLocID --> OfficeLocation
                             FK JobID --> Job
                             FK GroupID --> Group
-                            SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
                             SK JobTitle
-                            SK GroupName 
-
+                            SK GroupName
 
 -----------
 USER VIEW 2
@@ -61,7 +56,6 @@ DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName)
                             EmployeeProject(__EmpID__, __ProjID__, EmpPercentTimeAssigned, EmpTotalHoursWorked)
                             FK EmpID --> Employee
                             FK ProjID --> Project
-
 
 -----------
 USER VIEW 3
@@ -90,7 +84,6 @@ DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName)
                             FK ProjLeaderID --> Employee
                             SK CustName
                             SK ProjName
-
 
 -----------
 USER VIEW 4
@@ -126,6 +119,6 @@ DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWo
                             FK JobID --> Job
                             FK GroupID --> Group
                             FK ProjID --> Project
-                            SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
+                            SK EmpWorkPhone
                             SK JobTitle
                             SK GroupName

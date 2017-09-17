@@ -2,7 +2,6 @@
         CUMULATIVE DBDL        
 ===============================
 
-
 Entity:                     Employee
 Attributes:                 EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
 Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
@@ -14,14 +13,12 @@ DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWo
                             FK GroupID --> Group
                             SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
 
-
 Entity:                     OfficeLocation
 Attributes:                 OffLocID
 Functional Dependencies:    No non-trivial FDs
 Primary Key:                OffLocID
 Special Restrictions:       None
 DBDL 3NF:                   OfficeLocation(__OffLocID__)
-
 
 Entity:                     Job
 Attributes:                 JobID, JobTitle
@@ -31,7 +28,6 @@ Special Restrictions:       Unique constraint on JobTitle
 DBDL 3NF:                   Job(__JobID__, JobTitle)
                             SK JobTitle
 
-
 Entity:                     Group
 Attributes:                 GroupID, GroupName
 Functional Dependencies:    GroupID --> GroupName
@@ -39,7 +35,6 @@ Primary Key:                GroupID
 Special Restrictions:       Unique constraint on GroupName
 DBDL 3NF:                   Group(__GroupID__, GroupName)
                             SK GroupName
-
 
 Entity:                     Project
 Attributes:                 ProjID, ProjName, ProjType, ProjStatus, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjLeaderID, CustID
@@ -53,16 +48,6 @@ DBDL 3NF:                   Project(__ProjID__, ProjName, ProjType, ProjStatus, 
                             FK CustID --> Customer
                             SK ProjName
 
-
-Entity:                     ProjectStatus
-Attributes:                 ProjectStatus, ProjStatusDescription
-Functional Dependencies:    ProjectStatus --> ProjStatusDescription
-Primary Key:                ProjectStatus
-Special Restrictions:       Unique constraint on ProjectStatus
-DBDL 3NF:                   ProjectStatus(__ProjectStatus__, ProjStatusDescription)
-                            SK ProjStatusDescription
-
-
 Entity:                     Customer
 Attributes:                 CustID, CustName, CustContactFirstName, CustContactLastName
 Functional Dependencies:    CustID --> CustName, CustContactFirstName, CustContactLastName
@@ -70,7 +55,6 @@ Primary Key:                CustID
 Special Restrictions:       Unique constraint on CustName
 DBDL 3NF:                   Customer(__CustID__, CustName, CustContactFirstName, CustContactLastName)
                             SK CustName
-
 
 Entity:                     EmployeeProject
 Attributes:                 EmpID, ProjID, EmpPercentTimeAssigned, EmpTotalHoursWorked
