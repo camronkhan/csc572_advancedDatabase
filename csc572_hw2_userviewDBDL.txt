@@ -1,0 +1,131 @@
+===============================
+        USER VIEW DBDLs        
+===============================
+
+
+NOTE: Trivial functional dependencies are not listed.
+
+
+-----------
+USER VIEW 1
+-----------
+
+Entity:                     Employee
+                            OfficeLocation
+                            Job
+                            Group
+Attributes:                 EmpID, EmpFirstName, EmpLastName, EmpWorkPhone
+                            OffLocID
+                            JobID, JobTitle
+                            GroupID, GroupName
+Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID
+                            JobID --> JobID, JobTitle
+                            GroupID --> GroupName
+Primary Key:                EmpID
+                            OffLocID
+                            JobID
+                            GroupID
+Special Restrictions:       Unique constraint on EmpWorkPhone
+                            Unique constraint on JobTitle
+                            Unique constraint on GroupName
+DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, OffLocID, JobID, GroupID)
+                            OfficeLocation(__OffLocID__)
+                            Job(__JobID__, JobTitle)
+                            Group(__GroupID__, GroupName)
+                            FK OffLocID --> OfficeLocation
+                            FK JobID --> Job
+                            FK GroupID --> Group
+                            SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
+                            SK JobTitle
+                            SK GroupName 
+
+
+-----------
+USER VIEW 2
+-----------
+
+Entity:                     Employee
+                            Project
+                            EmployeeProject
+Attributes:                 EmpID, EmpFirstName, EmpLastName
+                            ProjID, ProjName
+                            EmpPercentTimeAssigned, EmpTotalHoursWorked
+Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName
+                            ProjID --> ProjName
+                            EmpID, ProjID --> EmpPercentTimeAssigned, EmpTotalHoursWorked
+Primary Key:                EmpID
+                            ProjID
+Special Restrictions:       Unique constraint on ProjName
+DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName)
+                            Project(__ProjID__, ProjName)
+                            EmployeeProject(__EmpID__, __ProjID__, EmpPercentTimeAssigned, EmpTotalHoursWorked)
+                            FK EmpID --> Employee
+                            FK ProjID --> Project
+
+
+-----------
+USER VIEW 3
+-----------
+
+Entity:                     Employee
+                            Project
+                            Customer
+Attributes:                 EmpID, EmpFirstName, EmpLastName
+                            ProjID, ProjName, ProjType, ProjStatus, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjLeaderID
+                            CustID, CustName, CustContactFirstName, CustContactLastName
+Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName
+                            ProjID --> ProjName, ProjType, ProjStatus, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjLeaderID, CustID
+                            CustID --> CustName, CustContactFirstName, CustContactLastName
+Primary Key:                EmpID
+                            ProjID
+                            CustID
+Special Restrictions:       Unique constraint on ProjName
+                            ProjType can only contain values 'maintenance', 'database', 'support', or 'reports'
+                            ProjStatus can only contain values 'planning', 'in progress', 'on hold', 'completed'
+                            Unique constraint on CustName
+DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName)
+                            Project(__ProjID__, ProjName, ProjType, ProjStatus, ProjStartDate, ProjEndDate, ProjFundsBudgeted, ProjPersonHoursBudgeted, ProjLeaderID, CustID)
+                            Customer(__CustID__, CustName, CustContactFirstName, CustContactLastName)
+                            FK CustID --> Cust
+                            FK ProjLeaderID --> Employee
+                            SK CustName
+                            SK ProjName
+
+
+-----------
+USER VIEW 4
+-----------
+
+Entity:                     Employee
+                            Job
+                            Group
+                            Project
+                            EmployeeProject
+Attributes:                 EmpID, EmpFirstName, EmpLastName, EmpWorkPhone
+                            JobID, JobTitle
+                            GroupID, GroupName
+                            ProjID
+                            EmpPercentTimeAssigned, EmpTotalHoursWorked
+Functional Dependencies:    EmpID --> EmpID, EmpFirstName, EmpLastName, EmpWorkPhone, JobID, GroupID
+                            JobID --> JobID, JobTitle
+                            GroupID --> GroupName
+                            EmpID, ProjID --> EmpPercentTimeAssigned, EmpTotalHoursWorked
+Primary Key:                EmpID
+                            JobID
+                            GroupID
+                            ProjID
+Special Restrictions:       Unique constraint on EmpWorkPhone
+                            Unique constraint on JobTitle
+                            Unique constraint on GroupName
+DBDL 3NF:                   Employee(__EmpID__, EmpFirstName, EmpLastName, EmpWorkPhone, JobID, GroupID)
+                            Job(__JobID__, JobTitle)
+                            Group(__GroupID__, GroupName)
+                            Project(__ProjID__)
+                            EmployeeProject(__EmpID__, __ProjID__, EmpPercentTimeAssigned, EmpTotalHoursWorked)
+                            FK EmpID --> Employee
+                            FK JobID --> Job
+                            FK GroupID --> Group
+                            FK ProjID --> Project
+                            SK EmpWorkPhone (although not a practical choice given its mutability and the fact that it would prevent storing former employees)
+                            SK JobTitle
+                            SK GroupName
