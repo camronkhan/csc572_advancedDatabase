@@ -81,6 +81,8 @@ CREATE TABLE OrderLines (
 	CONSTRAINT FK_OrderLines_Parts FOREIGN KEY (PartID) REFERENCES Parts(PartID)
 );
 
+/* INSERT DATA **************************************************************************/
+
 INSERT INTO Manufacturers (ManufacturerID, ManufacturerName) VALUES ('001', 'Alabama Mfg.');
 INSERT INTO Manufacturers (ManufacturerID, ManufacturerName) VALUES ('002', 'Alaska Mfg.');
 INSERT INTO Manufacturers (ManufacturerID, ManufacturerName) VALUES ('003', 'Arizona Mfg.');
@@ -105,6 +107,36 @@ INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, Ma
 INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000008', 'Gloves', 7.49, 2.33, '03', '008');
 INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000009', 'Pliers', 5.49, 1.87, '01', '001');
 INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000A', 'Thermometer', 11.49, 3.56, '04', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000B', 'Shovel Type 1', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000C', 'Shovel Type 2', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000D', 'Shovel Type 3', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000E', 'Shovel Type 4', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000F', 'Shovel Type 5', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000G', 'Shovel Type 6', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000H', 'Shovel Type 7', 10.99, 3.99, '01', '005');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000I', 'Drill Type 1', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000J', 'Drill Type 2', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000K', 'Drill Type 3', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000L', 'Drill Type 4', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000M', 'Drill Type 5', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000N', 'Drill Type 6', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000O', 'Drill Type 7', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000P', 'Drill Type 8', 99.99, 30.99, '02', '004');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000Q', 'Helmet Type 1', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000R', 'Helmet Type 2', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000S', 'Helmet Type 3', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000T', 'Helmet Type 4', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000U', 'Helmet Type 5', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000V', 'Helmet Type 6', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000W', 'Helmet Type 7', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000X', 'Helmet Type 8', 29.99, 8.99, '03', '002');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000Y', 'Clips Type 1', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('0000000Z', 'Clips Type 2', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000010', 'Clips Type 3', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000011', 'Clips Type 4', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000012', 'Clips Type 5', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000013', 'Clips Type 6', 9.99, 1.99, '04', '001');
+INSERT INTO Parts (PartID, PartDescription, PartPrice, PartCost, ItemClassID, ManufacturerID) VALUES ('00000014', 'Clips Type 7', 9.99, 1.99, '04', '001');
 
 INSERT INTO Warehouses (WarehouseID, WarehouseDescription) VALUES ('001', 'Northern Warehouse');
 INSERT INTO Warehouses (WarehouseID, WarehouseDescription) VALUES ('002', 'Eastern Warehouse');
@@ -121,6 +153,7 @@ INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('005', 
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('001', '00000006', 19);
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('004', '0000000A', 4957);
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('008', '00000001', 331);
+INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('008', '00000001', 0);
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('005', '00000003', 1010);
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('006', '00000004', 3);
 INSERT INTO Inventories (WarehouseID, PartID, InventoryQuantity) VALUES ('007', '00000008', 333);
@@ -318,8 +351,24 @@ followed by ascending number on hand ordering within the part number. */
 
 SELECT      Parts.PartID,
             Parts.PartDescription,
+            Inventories.InventoryQuantity,
             Warehouses.WarehouseID,
             Warehouses.WarehouseDescription,
             Manufacturers.ManufacturerID,
-            Manufacturers.ManufacturerName,
-            
+            Manufacturers.ManufacturerName
+FROM        ((((Parts
+INNER JOIN  Inventories AS InventoriesMin ON Parts.PartID = InventoriesMin.PartID)
+INNER JOIN  Inventories ON Parts.PartID = Inventories.PartID)
+INNER JOIN  Warehouses ON Inventories.WarehouseID = Warehouses.WarehouseID)
+INNER JOIN  Manufacturers ON Parts.ManufacturerID = Manufacturers.ManufacturerID)
+GROUP BY    Parts.PartID,
+            Parts.PartDescription,
+            Inventories.InventoryQuantity,
+            Warehouses.WarehouseID,
+            Warehouses.WarehouseDescription,
+            Manufacturers.ManufacturerID,
+            Manufacturers.ManufacturerName
+HAVING      MIN(InventoriesMin.InventoryQuantity) = 0  
+ORDER BY    Parts.PartID,
+            Inventories.InventoryQuantity;
+
